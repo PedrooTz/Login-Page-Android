@@ -1,23 +1,14 @@
 package br.senai.sp.jandira.loginpage.screens
 
-import android.graphics.drawable.Icon
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -26,25 +17,13 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CardElevation
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
@@ -54,20 +33,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import br.senai.sp.jandira.loginpage.R
-import br.senai.sp.jandira.loginpage.ui.theme.LoginPageTheme
+
 
 @Composable
 fun TelaHome(controleNavegacao: NavHostController) {
+
+    var textState = remember {
+        mutableStateOf("")
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -77,7 +58,7 @@ fun TelaHome(controleNavegacao: NavHostController) {
             .fillMaxWidth()
             .height(220.dp)){
             Image(
-                painter = painterResource(id = R.drawable.paris),
+                painter = painterResource(id = br.senai.sp.jandira.loginpage.R.drawable.paris),
                 contentDescription = "Paisagem",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -96,15 +77,15 @@ fun TelaHome(controleNavegacao: NavHostController) {
                         modifier = Modifier
                             .fillMaxWidth()
                     ){
-                        Card (
+                        Surface (
                             modifier = Modifier
                                 .width(80.dp)
                                 .height(80.dp),
                             shape = CircleShape
                         ){
                             Image(
-                                painter = painterResource(id = R.drawable.perfil),
-                                contentDescription = "Imagem de perfil",
+                                painter = painterResource(id = br.senai.sp.jandira.loginpage.R.drawable.perfil ),
+                                contentDescription = "",
                                 contentScale = ContentScale.Crop
                             )
                         }
@@ -168,18 +149,33 @@ fun TelaHome(controleNavegacao: NavHostController) {
                         ),
                     elevation = CardDefaults.cardElevation(10.dp)
                 ) {
-                    Text(
-                        text = "Montain",
-                        color = Color.White,
-                        fontSize = 20.sp
-                    )
+                    Column (
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxSize(),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ){
+                        Icon(
+                            imageVector = Icons.Default.Email,
+                            contentDescription = "Montanha",
+                            tint = Color(0xFFFFFFFF),
+                            modifier = Modifier
+                                .size(32.dp)
+                        )
+                        Text(
+                            text = "Montain",
+                            color = Color.White,
+                            fontSize = 20.sp
+                        )
+                    }
                 }
             }
         }
         Spacer(modifier = Modifier.height(12.dp))
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = textState.value,
+            onValueChange = {textState.value = it},
             modifier = Modifier
                 .fillMaxWidth(),
             placeholder = {
@@ -214,30 +210,70 @@ fun TelaHome(controleNavegacao: NavHostController) {
             modifier = Modifier
                 .padding(top = 10.dp)
         )
+        Spacer(modifier = Modifier.height(12.dp))
         LazyColumn(){
             items(20) {
                 Card(
                     modifier = Modifier
                         .fillMaxSize()
-                        .height(120.dp)
-                        .padding(bottom = 8.dp),
+                        .height(240.dp)
+                        .padding(bottom = 12.dp),
                     colors = CardDefaults
                         .cardColors(
-                            containerColor = Color(0xFFCF06F0)
+                            containerColor = Color.White
                         ),
                     elevation = CardDefaults.cardElevation(10.dp)
                 ) {
-                    Image(painter = painterResource(id = R.drawable.london),
-                        contentDescription = "")
-
-
+                    Surface (
+                        modifier = Modifier
+                            .height(120.dp)
+                            .fillMaxWidth()
+                            .padding(horizontal = 6.dp, vertical = 6.dp)
+                    ){
+                        Image(
+                            painter = painterResource(id = br.senai.sp.jandira.loginpage.R.drawable.london) ,
+                            contentDescription = "Paisagem",
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                    Column (
+                        modifier = Modifier
+                            .padding(horizontal = 10.dp)
+                    ){
+                        Text(
+                            text = "London, 2019",
+                            color = Color(0xFFCF06F0),
+                            fontWeight = FontWeight(480),
+                            fontSize = 20.sp
+                        )
+                        Text(
+                            text = "London is the capital and largest city of  the United Kingdom, with a population of just under 9 million.",
+                            color = Color.Gray,
+                            fontWeight = FontWeight.Normal,
+                            fontSize = 12.sp,
+                            modifier = Modifier
+                                .padding(vertical = 4.dp)
+                        )
+                        Row (
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            Text(
+                                text = "18 Feb - 21 Feb",
+                                color = Color(0xFFCF06F0),
+                                fontWeight = FontWeight(480)
+                            )
+                        }
+                    }
                 }
             }
         }
     }
 }
-@Preview
-@Composable
-fun TelaHomePreview() {
-    //TelaHome()
-}
+//@Preview
+//@Composable
+//fun TelaHomePreview() {
+//    Telahome()
+//
+//}
