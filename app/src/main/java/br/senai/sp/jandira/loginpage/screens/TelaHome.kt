@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -38,9 +39,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import br.senai.sp.jandira.loginpage.repositorio.CategoriaRepositorio
+import br.senai.sp.jandira.loginpage.repositorio.ViagemRepositorio
+import br.senai.sp.jandira.loginpage.utilitarios.encurtadorDeDatas
 
 
 @Composable
@@ -49,6 +55,10 @@ fun TelaHome(controleNavegacao: NavHostController) {
     var textState = remember {
         mutableStateOf("")
     }
+    val  viagens = ViagemRepositorio().listarTodasAsViagens()
+
+    val icons = CategoriaRepositorio().listarTodasAsCaregorias()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -137,7 +147,8 @@ fun TelaHome(controleNavegacao: NavHostController) {
         )
         Spacer(modifier = Modifier.height(12.dp))
         LazyRow() {
-            items(20) {
+
+            items(icons) {
                 Card(
                     modifier = Modifier
                         .width(180.dp)
@@ -157,19 +168,22 @@ fun TelaHome(controleNavegacao: NavHostController) {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ){
                         Icon(
-                            imageVector = Icons.Default.Email,
+                            imageVector = it.icone!!,
                             contentDescription = "Montanha",
                             tint = Color(0xFFFFFFFF),
                             modifier = Modifier
                                 .size(32.dp)
                         )
                         Text(
-                            text = "Montain",
+                            text = it.nome,
                             color = Color.White,
                             fontSize = 20.sp
                         )
+
                     }
+
                 }
+
             }
         }
         Spacer(modifier = Modifier.height(12.dp))
@@ -212,7 +226,7 @@ fun TelaHome(controleNavegacao: NavHostController) {
         )
         Spacer(modifier = Modifier.height(12.dp))
         LazyColumn(){
-            items(20) {
+            items(viagens) {
                 Card(
                     modifier = Modifier
                         .fillMaxSize()
@@ -241,13 +255,13 @@ fun TelaHome(controleNavegacao: NavHostController) {
                             .padding(horizontal = 10.dp)
                     ){
                         Text(
-                            text = "London, 2019",
+                            text = "${it.destino}, ${it.dataChegada.year}",
                             color = Color(0xFFCF06F0),
                             fontWeight = FontWeight(480),
                             fontSize = 20.sp
                         )
                         Text(
-                            text = "London is the capital and largest city of  the United Kingdom, with a population of just under 9 million.",
+                            text = it.descricao,
                             color = Color.Gray,
                             fontWeight = FontWeight.Normal,
                             fontSize = 12.sp,
@@ -260,7 +274,7 @@ fun TelaHome(controleNavegacao: NavHostController) {
                             horizontalArrangement = Arrangement.End
                         ) {
                             Text(
-                                text = "18 Feb - 21 Feb",
+                                text = encurtadorDeDatas(it.dataChegada, it.dataPartida),
                                 color = Color(0xFFCF06F0),
                                 fontWeight = FontWeight(480)
                             )
@@ -271,9 +285,9 @@ fun TelaHome(controleNavegacao: NavHostController) {
         }
     }
 }
-//@Preview
-//@Composable
-//fun TelaHomePreview() {
-//    Telahome()
-//
-//}
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun TelaHomePreview() {
+    TelaHome(controleNavegacao = rememberNavController())
+
+}
