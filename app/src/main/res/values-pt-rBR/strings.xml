@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Página de Login</string>
+    <string name="sign_intro">Por favor, faça login para continuar</string>
+    <string name="notice_sign">Não tem uma conta?</string>
+    <string name="sign_button">Cadastre - se</string>
+    <string name="text_button"> Entrar</string>
+</resources>

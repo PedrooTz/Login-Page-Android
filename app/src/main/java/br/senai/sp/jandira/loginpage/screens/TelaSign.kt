@@ -42,6 +42,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.senai.sp.jandira.loginpage.R
 import br.senai.sp.jandira.loginpage.ui.theme.LoginPageTheme
 
@@ -315,5 +316,5 @@ fun TelaSign(controleNavegacao: NavHostController) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun TelaSignPreview() {
-    //TelaSign(controleNavegacao)
+    TelaSign(controleNavegacao = rememberNavController())
 }

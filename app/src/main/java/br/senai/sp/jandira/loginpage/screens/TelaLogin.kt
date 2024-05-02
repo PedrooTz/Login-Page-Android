@@ -28,11 +28,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import br.senai.sp.jandira.loginpage.R
 
 @Composable
 fun TelaLogin(controleNavegacao: NavHostController) {
@@ -76,7 +79,8 @@ fun TelaLogin(controleNavegacao: NavHostController) {
                 fontWeight = FontWeight.Bold,
                 color = Color(0xF1C107F5)
             )
-            Text(text = "Please sign in to continue", color = Color(0xAA000000))
+            Text(text = stringResource(id = R.string.sign_intro)
+                , color = Color(0xAA000000))
         }
         Column (
 
@@ -158,7 +162,7 @@ fun TelaLogin(controleNavegacao: NavHostController) {
                         .buttonColors(containerColor = Color(0xF1C107F5)),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text(text = "SIGN IN")
+                    Text(text = stringResource(id = R.string.text_button))
                 }
                 Row (
                     modifier = Modifier
@@ -166,8 +170,8 @@ fun TelaLogin(controleNavegacao: NavHostController) {
                 ){
 
 
-                    Text(text = "Don't have an account?")
-                    Text(text = "Sign Up", color = Color(0xF1C107F5),
+                    Text(text = stringResource(id = R.string.notice_sign))
+                    Text(text = stringResource(id = R.string.sign_button), color = Color(0xF1C107F5),
                         modifier = Modifier.clickable { controleNavegacao.navigate("sign") })
                 }
             }
@@ -198,7 +202,7 @@ fun TelaLogin(controleNavegacao: NavHostController) {
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun TelaLoginPreview() {
-    //TelaLogin(controleNavegacao)
+    TelaLogin(controleNavegacao = rememberNavController())
     
 }
 
