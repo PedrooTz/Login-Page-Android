@@ -5,4 +5,15 @@
     <string name="notice_sign">Não tem uma conta?</string>
     <string name="sign_button">Cadastre - se</string>
     <string name="text_button"> Entrar</string>
+
+
+    <string name="text_signup">Cadastro</string>
+    <string name="text_account">Criar uma nova conta</string>
+    <string name="name">Nome</string>
+    <string name="phone">Telefone</string>
+    <string name="password">Senha</string>
+    <string name="idade">Maior 18</string>
+    <string name="createaccount">Criar Conta</string>
+    <string name="mensagem">Já tem conta?</string>
+    <string name="signin">Entrar</string>
 </resources>

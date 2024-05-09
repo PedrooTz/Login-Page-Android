@@ -12,4 +12,8 @@
     <string name="name">Name</string>
     <string name="phone">Phone</string>
     <string name="password">Password</string>
+    <string name="idade">Over 18</string>
+    <string name="createaccount">Create Account</string>
+    <string name="mensagem">Already have an account</string>
+    <string name="signin">Sign in</string>
 </resources>

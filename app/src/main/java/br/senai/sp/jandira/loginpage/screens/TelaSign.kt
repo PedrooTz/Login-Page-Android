@@ -37,6 +37,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -97,12 +98,12 @@ fun TelaSign(controleNavegacao: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "Sign Up",
+                        text = stringResource(id = R.string.text_signup),
                         fontSize = 36.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color(0xF1C107F5)
                     )
-                    Text(text = "Create a new account", color = Color(0xAA000000))
+                    Text(text = stringResource(id = R.string.text_account),color = Color(0xAA000000))
                 }
 
             }
@@ -153,7 +154,7 @@ fun TelaSign(controleNavegacao: NavHostController) {
                         )
                     },
                     label = {
-                        Text(text = "Nome")
+                        Text(text = stringResource(id = R.string.name))
                     },
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Color(0xF1C107F5),
@@ -180,7 +181,7 @@ fun TelaSign(controleNavegacao: NavHostController) {
                         )
                     },
                     label = {
-                        Text(text = "Phone")
+                        Text(text = stringResource(id = R.string.phone))
                     },
 
                     colors = OutlinedTextFieldDefaults.colors(
@@ -234,7 +235,7 @@ fun TelaSign(controleNavegacao: NavHostController) {
                         )
                     },
                     label = {
-                        Text(text = "Password")
+                        Text(text = stringResource(id = R.string.password))
                     },
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Color(0xF1C107F5),
@@ -253,7 +254,7 @@ fun TelaSign(controleNavegacao: NavHostController) {
                         colors = CheckboxDefaults.colors(checkedColor = Color(0xF1C107F5), uncheckedColor = Color(0xF1C107F5))
 
                     )
-                    Text(text = "Over 18?")
+                    Text(text = stringResource(id = R.string.idade))
                 }
             }
             Row(
@@ -278,12 +279,12 @@ fun TelaSign(controleNavegacao: NavHostController) {
                             .buttonColors(containerColor = Color(0xF1C107F5)),
                         shape = RoundedCornerShape(12.dp)
                     ) {
-                        Text(text = "CREATE ACCOUNT")
+                        Text(text = stringResource(id = R.string.createaccount))
                     }
                     Row (
                     ){
-                        Text(text = "Already have an account?")
-                        Text(text = "Sign In", color = Color(0xF1C107F5),
+                        Text(text = stringResource(id = R.string.mensagem))
+                        Text(text = stringResource(id = R.string.signin), color = Color(0xF1C107F5),
                             modifier = Modifier.clickable { controleNavegacao.navigate("login") })
                     }
                 }
