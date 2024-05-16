@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Página de inicio de sésion</string>
+    <string name="sign_intro">Por favor inicie sesión para continuar</string>
+    <string name="notice_sign">¿No tienes una cuenta?</string>
+    <string name="sign_button">Registro</string>
+    <string name="text_button"> Entrar</string>
+
+
+    <string name="text_signup">Registro</string>
+    <string name="text_account">Crea una cuenta nueva</string>
+    <string name="name">Nombre</string>
+    <string name="phone">Teléfono</string>
+    <string name="password">Contraseña</string>
+    <string name="idade">Mayores 18</string>
+    <string name="createaccount">Crea una conta</string>
+    <string name="mensagem">Ya tienes una cuenta?</string>
+    <string name="signin">Entrar</string>
+
+
+    <string name="paris">Estás en Paris</string>
+    <string name="categories">Categorias</string>
+    <string name="montain">Montaña</string>
+    <string name="snow">Nieve</string>
+    <string name="destiny">Busca tu destino</string>
+    <string name="pasttrips">Viajes Anteriores</string>
+
+</resources>

@@ -16,4 +16,14 @@
     <string name="createaccount">Criar Conta</string>
     <string name="mensagem">Já tem conta?</string>
     <string name="signin">Entrar</string>
+
+
+    <string name="paris">Você está em Paris</string>
+    <string name="categories">Categorias</string>
+    <string name="montain">Montanha</string>
+    <string name="snow">Neve</string>
+    <string name="destiny">Procure seu destino</string>
+    <string name="pasttrips">Viagens Anteriores</string>
+
+
 </resources>

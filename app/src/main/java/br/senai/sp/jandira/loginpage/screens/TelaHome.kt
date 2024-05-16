@@ -37,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -44,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import br.senai.sp.jandira.loginpage.R
 import br.senai.sp.jandira.loginpage.repositorio.CategoriaRepositorio
 import br.senai.sp.jandira.loginpage.repositorio.ViagemRepositorio
 import br.senai.sp.jandira.loginpage.utilitarios.encurtadorDeDatas
@@ -115,7 +117,7 @@ fun TelaHome(controleNavegacao: NavHostController) {
                                 .size(24.dp)
                         )
                         Text(
-                            text = "You're in Paris",
+                            text = stringResource(id = R.string.paris),
                             color = Color.White,
                             fontSize = 18.sp
                         )
@@ -140,7 +142,7 @@ fun TelaHome(controleNavegacao: NavHostController) {
     ){
         Spacer(modifier = Modifier.height(12.dp))
         Text(
-            text = "Categories",
+            text = stringResource(id = R.string.categories),
             fontWeight = FontWeight.Normal,
             color = Color.Black,
             fontSize = 18.sp
@@ -194,7 +196,7 @@ fun TelaHome(controleNavegacao: NavHostController) {
                 .fillMaxWidth(),
             placeholder = {
                 Text(
-                    text = "Search your destiny",
+                    text = stringResource(id = R.string.destiny),
                     color = Color.Gray
                 )
             },
@@ -217,7 +219,7 @@ fun TelaHome(controleNavegacao: NavHostController) {
         )
         Spacer(modifier = Modifier.height(12.dp))
         Text(
-            text = "Past Trips",
+            text = stringResource(id = R.string.pasttrips),
             fontWeight = FontWeight.Normal,
             color = Color.Black,
             fontSize = 18.sp,

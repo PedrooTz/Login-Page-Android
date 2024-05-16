@@ -16,4 +16,12 @@
     <string name="createaccount">Create Account</string>
     <string name="mensagem">Already have an account</string>
     <string name="signin">Sign in</string>
+    
+    
+    <string name="paris">You\re in Paris</string>
+    <string name="categories">Categories</string>
+    <string name="montain">Montain</string>
+    <string name="snow">Snow</string>
+    <string name="destiny">Search your destiny</string>
+    <string name="pasttrips">Past Trips</string>
 </resources>
